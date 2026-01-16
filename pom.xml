@@ -1,31 +1,88 @@
-<dependencies>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <!-- Correct starter for REST + Tomcat -->
-    <dependency>
+    <!-- ===================== -->
+    <!-- Maven Model Version   -->
+    <!-- ===================== -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- ===================== -->
+    <!-- Spring Boot Parent    -->
+    <!-- ===================== -->
+    <parent>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.0.1</version>
+        <relativePath/>
+    </parent>
 
-    <!-- Dev tools (optional) -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-devtools</artifactId>
-        <scope>runtime</scope>
-        <optional>true</optional>
-    </dependency>
+    <!-- ===================== -->
+    <!-- Project Coordinates   -->
+    <!-- ===================== -->
+    <groupId>com.example.jenkin</groupId>
+    <artifactId>jenkinSpring</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
 
-    <!-- External Tomcat (MUST be provided for WAR) -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-tomcat</artifactId>
-        <scope>provided</scope>
-    </dependency>
+    <name>jenkinSpring</name>
+    <description>Spring Boot WAR deployed on external Tomcat using Jenkins</description>
 
-    <!-- Test -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <scope>test</scope>
-    </dependency>
+    <!-- ===================== -->
+    <!-- Java Version          -->
+    <!-- ===================== -->
+    <properties>
+        <java.version>17</java.version>
+    </properties>
 
-</dependencies>
+    <!-- ===================== -->
+    <!-- Dependencies          -->
+    <!-- ===================== -->
+    <dependencies>
+
+        <!-- Spring Boot Web (REST + MVC) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- External Tomcat (provided by server) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Developer tools (optional) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- Testing -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- ===================== -->
+    <!-- Build Configuration   -->
+    <!-- ===================== -->
+    <build>
+        <plugins>
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
