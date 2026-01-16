@@ -9,9 +9,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 public class JenkinSpringApplication extends SpringBootServletInitializer {
 	
 	@Override
-    protected SpringApplicationBuilder configure(
-            SpringApplicationBuilder application) {
-        return application.sources(JenkinSpringApplication.class);
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(JenkinSpringApplication.class);
     }
 
 	public static void main(String[] args) {
